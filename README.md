@@ -1,4 +1,4 @@
-### Hi there 👋My name is SongPinHao,come from China.  I am currently studying in Beijing Institute of Technology, majoring in EE.
+### Hi there 👋My name is SongPinHao.
 
 <!--
 **wzxsph/wzxsph** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
