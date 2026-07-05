@@ -32,7 +32,7 @@ I'm an Electronic Information Engineering undergraduate at Beijing Institute of 
 
 - Multiple AI hackathon awards, with experience in rapid prototyping, demo delivery, and team collaboration
 - Douyin AI Creator Program Hackathon: Youth Resonance Award, built a personality-test-driven AI world map game
-- Miraclepl Vibeathon: Excellence Award and 2000 RMB compute credit, built a Claude Code plugin for web novel writing
+- Miracleplus Vibeathon: Excellence Award and 2000 RMB compute credit, built a Claude Code plugin for web novel writing
 
 ## ⚡ Tech Stack
 
