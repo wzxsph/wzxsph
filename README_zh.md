@@ -10,4 +10,4 @@
 - 互动叙事、生成式体验与像素世界
 - 从快速原型到可部署产品的完整工程闭环
 
-联系方式：[samsong.1a3@gmail.com](mailto:samsong.1a3@gmail.com)
+联系方式：[nizabentley397@gmail.com](mailto:nizabentley397@gmail.com)

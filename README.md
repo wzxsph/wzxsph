@@ -8,7 +8,7 @@
 
 <div align="center">
   <a href="https://wzxsph.github.io/wzxsph/"><img alt="Portfolio" src="https://img.shields.io/badge/PORTFOLIO-OPEN_SITE-D8FF3E?style=for-the-badge&labelColor=171717" /></a>
-  <a href="mailto:samsong.1a3@gmail.com"><img alt="Email" src="https://img.shields.io/badge/EMAIL-LET'S_TALK-FF5B35?style=for-the-badge&labelColor=171717" /></a>
+  <a href="mailto:nizabentley397@gmail.com"><img alt="Email" src="https://img.shields.io/badge/EMAIL-LET'S_TALK-FF5B35?style=for-the-badge&labelColor=171717" /></a>
   <a href="https://github.com/wzxsph?tab=repositories"><img alt="Projects" src="https://img.shields.io/badge/GITHUB-ALL_PROJECTS-3157FF?style=for-the-badge&labelColor=171717" /></a>
 </div>
 
@@ -146,7 +146,7 @@
   <h2>有一个值得做出来的想法？</h2>
   <p>产品合作、开源项目，或只是聊聊 AI 原生体验，都欢迎来信。</p>
   <p>
-    <a href="mailto:samsong.1a3@gmail.com"><b>samsong.1a3@gmail.com</b></a>
+    <a href="mailto:nizabentley397@gmail.com"><b>nizabentley397@gmail.com</b></a>
     &nbsp;·&nbsp;
     <a href="https://wzxsph.github.io/wzxsph/"><b>Portfolio</b></a>
     &nbsp;·&nbsp;
