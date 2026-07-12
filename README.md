@@ -1,53 +1,33 @@
-### Hi, I'm 宋品豪 👋
+# 宋品豪 · Portfolio
 
-I'm an Electronic Information Engineering undergraduate at Beijing Institute of Technology, Class of 2027. I focus on AI Agent development, large language model applications, and perception data workflows for autonomous driving.
+个人作品集与博客站点，聚焦 AI Agent、互动叙事、生成式体验与开源工具。
 
-## 🔭 What I'm Working On
+**在线访问：** [https://wzxsph.github.io/wzxsph/](https://wzxsph.github.io/wzxsph/)
 
-- Building practical AI Agent tools with Claude Code, Codex, Python, and TypeScript
-- Exploring LLM-powered writing workflows, plugin systems, and interactive content generation
-- Working with autonomous driving perception data, including 4D mmWave radar, visual auto-labeling, and tracking result analysis
+## Featured projects
 
-## 💼 Experience
+- [TT16 · 交易人格十六型](https://github.com/wzxsph/TT16) — 将真实交易选择整理成可复盘的决策地图
+- [BadGuard](https://github.com/wzxsph/BadGuard) — 每日 A 股技术状态与风险观察卡片
+- [Hip 24-Point Annotation Tool](https://github.com/wzxsph/hip-22-annotation-tool) — 髋关节 X 光片本地标注与复核工具
+- [Narrative Trace](https://github.com/wzxsph/Narrative-Trace) — 竖屏互动叙事与 AI 辅助创作管线
+- [Personality Escape Station](https://github.com/wzxsph/Personality-Escape-Station) — 人格测试驱动的可探索像素空间
+- [AI 人生火锅](https://github.com/guanlili/ai-life-hotpot/tree/main) — 用火锅隐喻构建人生选择的生成式体验
 
-**Algorithm Intern** · Beijing Institute of Technology Ruixing Electronic Technology Co., Ltd.
-- Worked on radar data replay, scenario dataset construction, annotation QA, and standardized data workflow documentation
-- Supported visual dataset auto-labeling workflows and tracking result analysis
-- Organized typical cases such as missed detections, false positives, and ID switches for perception model evaluation
+## Local preview
 
-## 🚀 Projects & Research
+这是一个无构建依赖的静态站点：
 
-**StoryWeaver** · Claude Code Writing Plugin  
-[github.com/wzxsph/StoryWeaver](https://github.com/wzxsph/StoryWeaver)
-- Built a Claude Code plugin for long-form web novel writing workflows
-- Supports character settings, chapter planning, consistency checks, and state tracking
-- Uses agents, commands, skills, workflows, and JSON state files to reduce continuity conflicts
+```bash
+python3 -m http.server 4173
+```
 
-**4D mmWave Radar Point Cloud Object Detection** · Research
-- Second author of [MARDF](https://ieeexplore.ieee.org/document/10868773), published at 2024 IEEE International Conference on Signal, Information and Data Processing (ICSIDP)
-- Worked on improving object detection for sparse and noisy 4D radar point clouds with velocity information
-- The method achieved stronger results than classic baselines on datasets such as TJ4DRadSet
+打开 `http://127.0.0.1:4173/`。
 
-## 🏆 Hackathons
+## Deployment
 
-- Multiple AI hackathon awards, with experience in rapid prototyping, demo delivery, and team collaboration
-- Douyin AI Creator Program Hackathon: Youth Resonance Award, built a personality-test-driven AI world map game
-- Miracleplus Vibeathon: Excellence Award and 2000 RMB compute credit, built a Claude Code plugin for web novel writing
+推送到 `main` 后，`.github/workflows/pages.yml` 会自动发布到 GitHub Pages。
 
-## ⚡ Tech Stack
+## Contact
 
-| Area | Tools & Skills |
-| --- | --- |
-| AI Agent | Claude Code, Codex, prompt engineering, LLM APIs, RAG, plugin workflows |
-| Engineering | Python, TypeScript, FastAPI, React, Docker, GitHub Actions, MySQL |
-| Perception Data | Data replay, annotation QA, auto-labeling, visual tracking, 4D mmWave radar, nuScenes |
-
-## 📫 Contact
-
-- **Email:** samsong.1a3@gmail.com
-- **GitHub:** [github.com/wzxsph](https://github.com/wzxsph)
-- **Location:** Beijing, China
-
----
-
-📄 [中文版](./README_zh.md) | 📝 [Full Profile](./wzxsph.md)
+- Email: [samsong.1a3@gmail.com](mailto:samsong.1a3@gmail.com)
+- GitHub: [@wzxsph](https://github.com/wzxsph)
