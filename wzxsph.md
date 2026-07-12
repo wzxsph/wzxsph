@@ -23,5 +23,5 @@
 
 ## 联系方式
 
-- Email: [samsong.1a3@gmail.com](mailto:samsong.1a3@gmail.com)
+- Email: [nizabentley397@gmail.com](mailto:nizabentley397@gmail.com)
 - GitHub: [github.com/wzxsph](https://github.com/wzxsph)
