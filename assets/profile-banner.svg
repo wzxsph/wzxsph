@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
   <title id="title">宋品豪 Song Pinhao — AI Product Builder</title>
-  <desc id="desc">米白色网格背景上的个人作品集横幅，包含橙色几何图形与黑色圆形标志。</desc>
+  <desc id="desc">A cream grid portfolio banner with bold bilingual type and an orange SPH mark.</desc>
   <defs>
     <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
       <path d="M60 0H0V60" fill="none" stroke="#171717" stroke-opacity=".12" stroke-width="1"/>
@@ -14,16 +14,16 @@
   <rect width="1200" height="420" fill="url(#grid)"/>
 
   <g font-family="Arial, 'Noto Sans SC', sans-serif" fill="#171717">
-    <text x="56" y="58" font-size="14" font-weight="700" letter-spacing="3">SPH / PRODUCT LOG</text>
-    <circle cx="62" cy="86" r="5" fill="#14A45A"/>
-    <text x="76" y="91" font-size="12" font-weight="700" letter-spacing="2">BEIJING · AVAILABLE FOR COLLABORATION</text>
+    <circle cx="64" cy="54" r="7" fill="#14A45A"/>
+    <text x="82" y="61" font-size="18" font-weight="700" letter-spacing="2">OPEN FOR PRODUCT COLLABORATION</text>
 
-    <text x="54" y="180" font-size="68" font-weight="800" letter-spacing="-4">宋品豪</text>
-    <text x="54" y="245" font-size="62" font-weight="800" letter-spacing="-3">SONG PINHAO</text>
-    <rect x="54" y="270" width="552" height="38" fill="#D8FF3E" transform="rotate(-1 54 270)"/>
-    <text x="68" y="296" font-size="17" font-weight="700" letter-spacing="3">AI PRODUCT BUILDER · AGENT SYSTEMS · INTERACTION</text>
-    <text x="56" y="352" font-size="17" font-weight="600">把想法做成能被体验的产品。</text>
-    <text x="56" y="382" font-size="13" fill="#65645F" letter-spacing="1">BUILD / TEST / SHIP — SELECTED WORK 01—06</text>
+    <text x="54" y="170" font-size="76" font-weight="800" letter-spacing="-4">宋品豪</text>
+    <text x="54" y="242" font-size="66" font-weight="800" letter-spacing="-3">SONG PINHAO</text>
+
+    <rect x="54" y="270" width="562" height="48" fill="#D8FF3E" transform="rotate(-1 54 270)"/>
+    <text x="70" y="302" font-size="20" font-weight="700" letter-spacing="2">AI PRODUCT BUILDER · AGENTS · INTERACTION</text>
+
+    <text x="56" y="370" font-size="18" font-weight="700" letter-spacing="2">FEATURED WORK / 01—03</text>
   </g>
 
   <g transform="translate(892 205)">
@@ -32,12 +32,12 @@
     <ellipse rx="150" ry="92" fill="none" stroke="#171717" stroke-width="2" transform="rotate(-37)"/>
     <circle r="108" fill="#171717" stroke="#F4F1E8" stroke-width="3" filter="url(#shadow)"/>
     <circle r="91" fill="none" stroke="#F4F1E8" stroke-opacity=".42"/>
-    <text x="0" y="-45" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#F4F1E8" letter-spacing="2">BUILD / TEST / SHIP</text>
+    <text x="0" y="-45" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#F4F1E8" letter-spacing="2">BUILD / TEST / SHIP</text>
     <text x="0" y="29" text-anchor="middle" font-family="Arial, sans-serif" font-size="74" font-weight="800" fill="#F4F1E8" letter-spacing="-5">SPH</text>
-    <text x="0" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#D8FF3E" letter-spacing="2">AI × INTERACTION</text>
+    <text x="0" y="61" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#D8FF3E" letter-spacing="2">AI × PRODUCT</text>
     <circle cx="-158" cy="-2" r="8" fill="#D8FF3E" stroke="#171717" stroke-width="3"/>
     <circle cx="135" cy="-79" r="8" fill="#3157FF" stroke="#171717" stroke-width="3"/>
   </g>
 
-  <text x="1139" y="385" text-anchor="end" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#171717" letter-spacing="2">PORTFOLIO / 2026 ↗</text>
+  <text x="1139" y="385" text-anchor="end" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#171717" letter-spacing="2">PORTFOLIO ↗</text>
 </svg>
