@@ -1,0 +1,68 @@
+---
+lang: en
+slug: fashionai-studio
+order: "01"
+title: FashionAI Studio
+category: Generative media workflow
+summary: A reviewable content-production workflow that turns one garment image and a PNG logo into product shots, model images, and social assets.
+year: "2026"
+status: Runnable mock + documented real generation
+role: Independent — product, design, and engineering
+tech:
+  - React 18
+  - TypeScript
+  - Vite
+  - Node.js
+  - Express
+  - SQLite
+  - Cloudflare
+proof:
+  - Browser-local mock that completes the full workflow
+  - Real gpt-image-2 generation sample documented in the repository
+  - Human review, task history, traceable delivery manifest, and ZIP export
+  - Explicit hard-cost cap of ¥100 per SKU
+links:
+  - label: Open live mock
+    href: https://fashionai-studio-demo.pages.dev/
+    kind: primary
+  - label: View source
+    href: https://github.com/wzxsph/fashionai-studio
+    kind: secondary
+  - label: Read product brief
+    href: https://github.com/wzxsph/fashionai-studio/blob/main/prd/prd_v1.md
+    kind: secondary
+nextSlug: tt16
+nextLabel: TT16 · TradeType 16
+seoTitle: FashionAI Studio case study — Pinhao Song
+seoDescription: A reviewable generative-media workflow for turning garment inputs into product, model, and social assets with explicit cost and delivery boundaries.
+---
+
+## The hard part was not generating one good image
+
+Fashion content production becomes a product problem when the same source garment has to stay recognizable across several formats, every result needs a review trail, and the cost of retries must remain predictable. FashionAI Studio treats generation as one stage in a small production system—not as a single prompt box.
+
+> One garment image + one transparent PNG logo become a controlled set of product, model, and X / Twitter assets.
+
+## A complete path from input to delivery
+
+1. **Define the job.** Upload the garment and logo, choose the required formats, and create a traceable task.
+2. **Generate variants.** Produce the product main image, model image, and social creative through an OpenAI-compatible image endpoint.
+3. **Review deliberately.** Keep the generated history visible so a human can approve, reject, or retry before anything ships.
+4. **Package the result.** Export approved files with a delivery manifest and ZIP rather than leaving assets scattered across chat history.
+
+The public demo runs in a browser-local mock mode, so the entire interaction can be inspected without credentials or paid calls. The repository separately documents a real `gpt-image-2` generation sample and the server path used for live mode.
+
+## Evidence designed into the workflow
+
+| Product question | Shipped answer |
+| --- | --- |
+| Can someone evaluate it safely? | A runnable static mock preserves the full task and review flow. |
+| Can generation be audited? | Task history and a delivery manifest keep outputs tied to their source job. |
+| Where does judgment happen? | Approval is an explicit human step before packaging. |
+| How is spend bounded? | The product brief sets a hard-cost ceiling of ¥100 per SKU. |
+
+## Boundaries are part of the product
+
+Mock and real modes are visibly separated. SQLite backs server-side task records, while the mock stays local to the browser. Failed generation, unapproved outputs, and cost limits are treated as interface states—not hidden implementation details.
+
+This makes the prototype useful for a product conversation: a collaborator can try the workflow, inspect the architecture, and identify what would need to change before a production rollout.

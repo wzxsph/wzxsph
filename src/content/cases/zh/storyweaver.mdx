@@ -1,0 +1,66 @@
+---
+lang: zh
+slug: storyweaver
+order: "03"
+title: StoryWeaver
+category: Agent 工作流
+summary: 面向 30 万字以上中文长篇的 Claude Code 插件，把规划、续写与校验变成可重复流程。
+year: "2026"
+status: 开源 · v1.2.3
+role: 独立负责产品、系统设计与工程
+tech:
+  - Claude Code
+  - Markdown
+  - JSON
+  - Python
+  - GitHub Actions
+proof:
+  - 5 个专职 Agent 与 27 个明确命令
+  - 13 维一致性校验，按 P0–P3 分级
+  - 面向 30 万字以上项目的分布式 JSON 状态
+  - MiraclePlus Vibeathon 优秀奖
+links:
+  - label: 安装 StoryWeaver
+    href: https://github.com/wzxsph/StoryWeaver#安装
+    kind: primary
+  - label: 查看源码
+    href: https://github.com/wzxsph/StoryWeaver
+    kind: secondary
+nextSlug: fashionai-studio
+nextLabel: FashionAI Studio
+seoTitle: StoryWeaver 案例 — 宋品豪
+seoDescription: 面向中文长篇创作的五 Agent Claude Code 插件，提供 27 个命令与 13 维一致性校验。
+---
+
+## 长篇创作，本质上也是状态管理问题
+
+当作品超过 30 万字，创作助手不能只依赖一段提示词能塞下多少内容。人物会变化，伏笔会累积，时间线会分叉，一个小小的连续性错误也可能污染后续章节。
+
+StoryWeaver 把这项工作封装成 Claude Code 插件：明确命令、专职 Agent、可持久化项目状态，以及能够重复执行的质量门禁。
+
+## 一条可重复的章节循环
+
+核心工作流被刻意保持为可见状态：
+
+**规划 → 简报 → 续写 → 抽取 → 校验 → 门禁**
+
+规划确定意图，简报只装配下一章真正需要的上下文，续写生成初稿，抽取把新事实写回分布式 JSON 状态，校验再从十三个维度检查草稿，最后由质量门禁决定能否进入下一轮。
+
+这样的拆分让失败更容易定位。上下文问题、文本生成问题和状态抽取问题，不会再混成一句模糊的“AI 写错了”。
+
+## 五个 Agent，二十七个命令
+
+五个 Agent 分担不同职责，而不是让一个通用 Agent 记住所有事情。二十七个命令把系统能力露出来：从项目初始化、规划，到续写、抽取、检查和维护，都有明确入口。
+
+| 系统层 | 产品职责 |
+| --- | --- |
+| 命令 | 给作者明确、可重复的操作 |
+| Agent | 拆分规划、写作、抽取和校验职责 |
+| 分布式状态 | 让长期项目事实不依赖单次上下文窗口 |
+| 严格校验 | 阻止错误格式或矛盾状态静默扩散 |
+
+## 用分级帮助人做判断
+
+一致性问题按 **P0 到 P3** 分级，让作者能区分阻断性的设定冲突和优先级较低的润色项。十三维校验把“这一章还对不对”从一种感觉，变成可以检查的界面。
+
+v1.2.3 已经开源并可直接安装。项目获得了 MiraclePlus Vibeathon 优秀奖，但更重要的证据是工作流本身可被检查：每个主要步骤都有命令、有产物，也有人做判断的位置。

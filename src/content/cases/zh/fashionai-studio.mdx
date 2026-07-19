@@ -1,0 +1,68 @@
+---
+lang: zh
+slug: fashionai-studio
+order: "01"
+title: FashionAI Studio
+category: 生成式媒体工作流
+summary: 从一张服装图和一个 PNG Logo 出发，生成可审核的商品主图、模特图与社媒素材。
+year: "2026"
+status: 可运行 Mock + 真实生成记录
+role: 独立负责产品、设计与工程
+tech:
+  - React 18
+  - TypeScript
+  - Vite
+  - Node.js
+  - Express
+  - SQLite
+  - Cloudflare
+proof:
+  - 浏览器本地 Mock 可走完整流程
+  - 仓库记录了真实 gpt-image-2 生成样例
+  - 人工审核、任务历史、可追溯交付清单与 ZIP 导出
+  - 单 SKU 硬成本上限明确为 ¥100
+links:
+  - label: 打开在线 Mock
+    href: https://fashionai-studio-demo.pages.dev/
+    kind: primary
+  - label: 查看源码
+    href: https://github.com/wzxsph/fashionai-studio
+    kind: secondary
+  - label: 阅读产品方案
+    href: https://github.com/wzxsph/fashionai-studio/blob/main/prd/prd_v1.md
+    kind: secondary
+nextSlug: tt16
+nextLabel: TT16 · 交易人格十六型
+seoTitle: FashionAI Studio 案例 — 宋品豪
+seoDescription: 一套可审核的生成式媒体工作流，将服装输入转化为商品、模特与社媒素材，同时明确成本与交付边界。
+---
+
+## 真正难的，不是生成一张好看的图片
+
+当同一件服装需要在多种画幅里保持可识别、每个结果都要能追溯、重试成本还必须可预期时，内容生成就变成了产品系统问题。FashionAI Studio 把生成放进一条小型生产链路，而不是停留在单个提示词输入框。
+
+> 一张服装图 + 一个透明底 PNG Logo，进入一条受控的商品图、模特图与 X / Twitter 素材生产流程。
+
+## 从输入到交付的完整路径
+
+1. **定义任务。** 上传服装与 Logo，选择所需画幅，建立可追溯任务。
+2. **生成变体。** 通过 OpenAI 兼容的图像接口生成商品主图、模特图和社媒素材。
+3. **明确审核。** 保留生成历史，由人决定通过、拒绝或重试，再进入交付。
+4. **整理结果。** 将通过的素材连同交付清单打包成 ZIP，而不是散落在对话记录中。
+
+公开 Demo 运行在浏览器本地 Mock 模式，不需要密钥或付费调用就能检查完整交互。仓库另行记录了真实 `gpt-image-2` 生成样例，以及真实模式使用的服务端链路。
+
+## 把证据直接做进流程
+
+| 产品问题 | 已交付答案 |
+| --- | --- |
+| 能不能安全评估？ | 可运行的静态 Mock 保留完整任务和审核流程。 |
+| 生成结果能不能追溯？ | 任务历史与交付清单把输出绑定到源任务。 |
+| 人在何时做判断？ | 打包前必须经过明确的人工审核。 |
+| 成本如何约束？ | 产品方案将单 SKU 硬成本上限设为 ¥100。 |
+
+## 边界本身也是产品
+
+Mock 与真实模式被清楚地区分。服务端使用 SQLite 保存任务记录，Mock 数据则留在浏览器本地。生成失败、未审核结果与成本限制都被做成界面状态，而不是藏在实现细节里。
+
+因此，这个原型可以直接支持产品讨论：合作方能亲手体验流程、检查架构，并快速判断它离生产环境还缺什么。

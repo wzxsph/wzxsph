@@ -1,0 +1,71 @@
+---
+import "@fontsource-variable/instrument-sans/index.css";
+import "../styles/global.css";
+import { withBase, type Lang } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Lang;
+  canonicalPath: string;
+  alternatePaths: { en: string; zh: string };
+  ogSlug?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  lang,
+  canonicalPath,
+  alternatePaths,
+  ogSlug = "home",
+  jsonLd,
+} = Astro.props;
+
+const canonical = new URL(withBase(canonicalPath), Astro.site);
+const englishUrl = new URL(withBase(alternatePaths.en), Astro.site);
+const chineseUrl = new URL(withBase(alternatePaths.zh), Astro.site);
+const ogImage = new URL(withBase(`/og/${ogSlug}.png`), Astro.site);
+const locale = lang === "zh" ? "zh_CN" : "en_US";
+const alternateLocale = lang === "zh" ? "en_US" : "zh_CN";
+---
+
+<!doctype html>
+<html lang={lang === "zh" ? "zh-CN" : "en"}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f1e8" />
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Pinhao Song" />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="zh-CN" href={chineseUrl} />
+    <link rel="alternate" hreflang="x-default" href={englishUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={locale} />
+    <meta property="og:locale:alternate" content={alternateLocale} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <title>{title}</title>
+
+    {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{lang === "zh" ? "跳到主要内容" : "Skip to main content"}</a>
+    <slot />
+  </body>
+</html>

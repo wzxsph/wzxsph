@@ -1,0 +1,66 @@
+---
+lang: en
+slug: storyweaver
+order: "03"
+title: StoryWeaver
+category: Agent workflow
+summary: A Claude Code plugin that makes planning, continuing, and checking Chinese fiction projects beyond 300,000 characters repeatable.
+year: "2026"
+status: Open source · v1.2.3
+role: Independent — product, system design, and engineering
+tech:
+  - Claude Code
+  - Markdown
+  - JSON
+  - Python
+  - GitHub Actions
+proof:
+  - 5 specialized agents and 27 explicit commands
+  - 13-dimensional consistency verification with P0–P3 severity
+  - Distributed JSON state designed for 300,000+ character projects
+  - Excellence Award at MiraclePlus Vibeathon
+links:
+  - label: Install StoryWeaver
+    href: https://github.com/wzxsph/StoryWeaver#安装
+    kind: primary
+  - label: View source
+    href: https://github.com/wzxsph/StoryWeaver
+    kind: secondary
+nextSlug: fashionai-studio
+nextLabel: FashionAI Studio
+seoTitle: StoryWeaver case study — Pinhao Song
+seoDescription: A five-agent Claude Code plugin with 27 commands and 13-dimensional consistency checks for Chinese long-form fiction projects.
+---
+
+## Long fiction is a state-management problem
+
+At 300,000 characters and beyond, a writing assistant cannot rely on whatever happens to fit in one prompt. Characters evolve, promises accumulate, timelines branch, and a small continuity error can contaminate later chapters.
+
+StoryWeaver packages the work as a Claude Code plugin: explicit commands, specialized agents, durable project state, and a quality gate that can be rerun.
+
+## One repeatable chapter loop
+
+The central workflow is deliberately visible:
+
+**plan → brief → continue → extract → verify → gate**
+
+Planning establishes intent. A brief assembles only the context needed for the next chapter. Continuation produces the draft. Extraction writes new facts back into distributed JSON state. Verification checks the draft against thirteen consistency dimensions before the quality gate allows the loop to continue.
+
+This separation makes failures easier to locate. A context problem, a prose-generation problem, and a state-extraction problem no longer look like the same vague “AI made a mistake.”
+
+## Five agents, twenty-seven commands
+
+The five agents divide responsibilities instead of asking one general agent to remember everything. Twenty-seven commands expose the system’s operations—from project setup and planning through continuation, extraction, checking, and maintenance.
+
+| Layer | Product responsibility |
+| --- | --- |
+| Commands | Give the writer explicit, repeatable actions |
+| Agents | Separate planning, writing, extraction, and verification roles |
+| Distributed state | Keep long-running project facts outside a single context window |
+| Strict validation | Stop malformed or inconsistent state from silently propagating |
+
+## Severity that supports judgment
+
+Consistency findings are grouped from **P0 to P3**, so the writer can distinguish a blocking canon conflict from a lower-priority polish issue. The thirteen checks turn “does this chapter still fit?” into a review surface rather than a feeling.
+
+Version 1.2.3 is open source and installable today. The project received an Excellence Award at the MiraclePlus Vibeathon—but the stronger proof is the inspectable workflow itself: every major step has a command, an artifact, and a place for human judgment.

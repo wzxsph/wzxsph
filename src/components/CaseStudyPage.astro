@@ -1,0 +1,190 @@
+---
+import type { CollectionEntry } from "astro:content";
+import fashionCover from "../../assets/projects/fashionai-studio.svg?url";
+import tt16Cover from "../../assets/projects/tt16.jpg?url";
+import storyweaverCover from "../../assets/projects/storyweaver.svg?url";
+import Header from "./Header.astro";
+import ArrowIcon from "./ArrowIcon.astro";
+import { EMAIL, casePath, homePath, type Lang, type ProjectSlug } from "../data/site";
+
+interface Props { entry: CollectionEntry<"cases"> }
+
+const { entry } = Astro.props;
+const data = entry.data;
+const lang = data.lang as Lang;
+const slug = data.slug as ProjectSlug;
+const covers: Record<ProjectSlug, string> = {
+  "fashionai-studio": fashionCover,
+  tt16: tt16Cover,
+  storyweaver: storyweaverCover,
+};
+const translationPath = lang === "zh" ? `/work/${slug}/` : `/zh/work/${slug}/`;
+const labels = lang === "zh" ? {
+  back: "全部作品", proof: "交付证据", year: "年份", status: "状态", role: "职责", stack: "能力栈",
+  next: "下一个案例", contact: "想一起做出下一个产品？", contactBody: "欢迎聊 AI 产品合作、开源项目与原型落地。", email: "邮件联系",
+} : {
+  back: "All work", proof: "Shipped evidence", year: "Year", status: "Status", role: "Role", stack: "Toolbox",
+  next: "Next case study", contact: "Ready to ship the next product?", contactBody: "I'm open to AI product collaborations, open-source work, and prototype-to-production conversations.", email: "Email me",
+};
+---
+
+<Header lang={lang} translationPath={translationPath} />
+
+<main id="main" class={`case case--${slug}`}>
+  <header class="case-hero">
+    <div class="case-hero-inner">
+      <a class="back-link" href={homePath(lang, "#work")}><ArrowIcon />{labels.back}</a>
+      <div class="case-kicker"><span>{data.order}</span><span>{data.category}</span></div>
+      <h1>{data.title}</h1>
+      <p class="case-summary">{data.summary}</p>
+      <div class="case-actions">
+        {data.links.map((link) => (
+          <a class={`button ${link.kind === "secondary" ? "button--ghost" : ""}`} href={link.href} target="_blank" rel="noreferrer">
+            {link.label}<ArrowIcon direction="up-right" />
+          </a>
+        ))}
+      </div>
+      <dl class="case-meta">
+        <div><dt>{labels.year}</dt><dd>{data.year}</dd></div>
+        <div><dt>{labels.status}</dt><dd>{data.status}</dd></div>
+        <div><dt>{labels.role}</dt><dd>{data.role}</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <figure class="case-cover">
+    <img src={covers[slug]} alt={`${data.title} — ${data.category}`} decoding="async" />
+  </figure>
+
+  <div class="case-content-grid">
+    <aside class="case-evidence" aria-labelledby="evidence-heading">
+      <p class="eyebrow" id="evidence-heading">{labels.proof}</p>
+      <ol>
+        {data.proof.map((item, index) => <li><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}
+      </ol>
+    </aside>
+
+    <article class="case-prose">
+      <slot />
+    </article>
+  </div>
+
+  <section class="case-stack" aria-labelledby="stack-heading">
+    <div>
+      <p class="eyebrow" id="stack-heading">{labels.stack}</p>
+      <p>{data.tech.join(" · ")}</p>
+    </div>
+  </section>
+
+  <a class="next-case" href={casePath(lang, data.nextSlug as ProjectSlug)}>
+    <span>{labels.next}</span>
+    <strong>{data.nextLabel}</strong>
+    <span class="next-arrow" aria-hidden="true"><ArrowIcon size={28} /></span>
+  </a>
+
+  <section class="case-contact">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>{labels.contact}</h2>
+      <p>{labels.contactBody}</p>
+      <a class="button button--paper" href={`mailto:${EMAIL}`}>{labels.email}<ArrowIcon direction="up-right" /></a>
+    </div>
+  </section>
+</main>
+
+<footer class="case-footer"><div><span>© {new Date().getFullYear()} Pinhao Song</span><a href={homePath(lang)}>{lang === "zh" ? "返回首页" : "Back home"}</a></div></footer>
+
+<style>
+  .case-hero-inner,
+  .case-cover,
+  .case-content-grid,
+  .case-stack > div,
+  .next-case,
+  .case-contact > div,
+  .case-footer > div {
+    width: var(--shell);
+    margin-inline: auto;
+  }
+
+  .case-hero-inner { padding: 2rem 0 clamp(4.5rem, 9vw, 8.5rem); }
+  .back-link { min-height: 44px; display: inline-flex; align-items: center; gap: 0.45rem; color: var(--ink); font-size: 0.85rem; font-weight: 610; text-decoration: none; }
+  .back-link :global(svg) { transform: rotate(180deg); }
+  .case-kicker { display: flex; gap: 1rem; margin-top: clamp(3.5rem, 8vw, 7rem); color: var(--ink-soft); font-size: 0.74rem; font-weight: 620; letter-spacing: 0.09em; text-transform: uppercase; }
+  .case-kicker span + span { padding-left: 1rem; border-left: 1px solid var(--line-strong); }
+  h1 { max-width: 12ch; margin-top: 1rem; font-size: clamp(4.25rem, 10vw, 10.5rem); font-weight: 510; letter-spacing: -0.078em; line-height: 0.87; }
+  .case-summary { max-width: 50rem; margin-top: clamp(2rem, 4vw, 3rem); font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.42; }
+  .case-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 2rem; }
+  .case-meta { display: grid; grid-template-columns: 0.5fr 1fr 1fr; gap: 1px; margin-top: clamp(3.5rem, 7vw, 6rem); border-top: 1px solid var(--line-strong); background: var(--line); }
+  .case-meta div { padding: 1.1rem 1.2rem 0 0; background: var(--paper); }
+  .case-meta div + div { padding-left: 1.2rem; }
+  .case-meta dt { margin-bottom: 0.25rem; color: var(--ink-soft); font-size: 0.66rem; letter-spacing: 0.09em; text-transform: uppercase; }
+  .case-meta dd { font-size: 0.9rem; }
+
+  .case-cover { aspect-ratio: 2.35 / 1; overflow: hidden; border: 1px solid var(--line-strong); background: var(--paper-deep); }
+  .case-cover img { width: 100%; height: 100%; object-fit: cover; }
+  .case--tt16 .case-cover img { object-position: center 48%; }
+
+  .case-content-grid { display: grid; grid-template-columns: minmax(13rem, 0.55fr) minmax(0, 1.45fr); gap: clamp(3rem, 9vw, 9rem); padding: clamp(5rem, 11vw, 10rem) 0; }
+  .case-evidence { align-self: start; position: sticky; top: 2rem; }
+  .case-evidence ol { margin-top: 1.6rem; list-style: none; border-top: 1px solid var(--line-strong); }
+  .case-evidence li { display: grid; grid-template-columns: 2rem 1fr; gap: 0.7rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .case-evidence li span { padding-top: 0.15rem; color: var(--ink-soft); font-size: 0.67rem; }
+  .case-evidence li p { font-size: 0.88rem; line-height: 1.5; }
+
+  .case-prose { max-width: var(--reading); }
+  .case-prose :global(h2) { margin: 0 0 1.45rem; padding-top: 5rem; font-size: clamp(2.15rem, 4vw, 4rem); font-weight: 530; letter-spacing: -0.055em; line-height: 1.02; }
+  .case-prose :global(h2:first-child) { padding-top: 0; }
+  .case-prose :global(h3) { margin: 2.25rem 0 0.75rem; font-size: 1.35rem; font-weight: 620; letter-spacing: -0.025em; }
+  .case-prose :global(p) { margin: 0 0 1.25rem; color: var(--ink-soft); font-size: 1.04rem; line-height: 1.75; }
+  .case-prose :global(strong) { color: var(--ink); font-weight: 650; }
+  .case-prose :global(code) { padding: 0.08rem 0.25rem; background: var(--paper-deep); color: var(--ink); font-size: 0.92em; }
+  .case-prose :global(blockquote) { margin: 2.5rem 0; padding: 1.6rem 1.8rem; border-left: 5px solid var(--ink); background: var(--acid); }
+  .case-prose :global(blockquote p) { margin: 0; color: var(--ink); font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 560; line-height: 1.42; }
+  .case-prose :global(ol),
+  .case-prose :global(ul) { margin: 1.5rem 0 2rem 1.2rem; }
+  .case-prose :global(li) { margin-bottom: 0.8rem; padding-left: 0.35rem; color: var(--ink-soft); }
+  .case-prose :global(table) { width: 100%; margin: 2.2rem 0; border-collapse: collapse; font-size: 0.9rem; }
+  .case-prose :global(th),
+  .case-prose :global(td) { padding: 0.9rem 1rem 0.9rem 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .case-prose :global(th) { border-color: var(--line-strong); color: var(--ink); font-weight: 650; }
+  .case-prose :global(td) { color: var(--ink-soft); }
+
+  .case-stack { background: var(--paper-deep); }
+  .case-stack > div { display: grid; grid-template-columns: 0.55fr 1.45fr; gap: clamp(3rem, 9vw, 9rem); padding: 2.5rem 0; }
+  .case-stack p:last-child { font-size: 0.9rem; }
+
+  .next-case { min-height: clamp(190px, 26vw, 340px); display: grid; grid-template-columns: 0.5fr minmax(0, 1.25fr) auto; gap: 2rem; align-items: center; color: var(--ink); border-bottom: 1px solid var(--line-strong); text-decoration: none; }
+  .next-case > span:first-child { font-size: 0.74rem; font-weight: 620; letter-spacing: 0.09em; text-transform: uppercase; }
+  .next-case strong { font-size: clamp(2.8rem, 7vw, 7.2rem); font-weight: 520; letter-spacing: -0.065em; line-height: 0.92; }
+  .next-arrow { width: 60px; height: 60px; display: grid; place-items: center; border: 1px solid var(--ink); background: transparent; transition: background 180ms ease, transform 180ms var(--ease); }
+  .next-case:hover .next-arrow { transform: translateX(4px); background: var(--acid); }
+
+  .case-contact { background: var(--ink); color: var(--paper); }
+  .case-contact > div { padding: clamp(5rem, 10vw, 8rem) 0; }
+  .case-contact h2 { max-width: 12ch; margin: 1.5rem 0; font-size: clamp(3rem, 7vw, 7rem); font-weight: 520; letter-spacing: -0.067em; line-height: 0.95; }
+  .case-contact div > p:not(.eyebrow) { max-width: 38rem; color: rgba(244, 241, 232, 0.68); font-size: 1rem; }
+  .case-contact .button { margin-top: 2rem; }
+  .case-footer { background: var(--ink); color: var(--paper); }
+  .case-footer > div { min-height: 78px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--paper-line); color: rgba(244, 241, 232, 0.6); font-size: 0.76rem; }
+  .case-footer a { color: var(--paper); text-underline-offset: 0.22rem; }
+
+  @media (max-width: 760px) {
+    .case-hero-inner { padding-top: 1rem; }
+    h1 { font-size: clamp(4rem, 20vw, 6.5rem); }
+    .case--storyweaver h1 { font-size: clamp(3.6rem, 15.5vw, 5rem); }
+    .case-actions { display: grid; }
+    .case-actions .button { justify-content: space-between; }
+    .case-meta { grid-template-columns: 1fr; background: transparent; }
+    .case-meta div,
+    .case-meta div + div { padding: 0.85rem 0; border-bottom: 1px solid var(--line); }
+    .case-cover { width: 100%; border-inline: 0; aspect-ratio: 1.35 / 1; }
+    .case-content-grid { grid-template-columns: 1fr; gap: 4.5rem; }
+    .case-evidence { position: static; }
+    .case-prose :global(table) { display: block; overflow-x: auto; }
+    .case-stack > div { grid-template-columns: 1fr; gap: 1rem; }
+    .next-case { grid-template-columns: 1fr auto; gap: 1rem; padding: 3.5rem 0; }
+    .next-case > span:first-child { grid-column: 1 / -1; }
+    .next-case strong { font-size: clamp(2.8rem, 14vw, 4.4rem); }
+    .next-arrow { width: 50px; height: 50px; }
+  }
+</style>

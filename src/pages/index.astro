@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HomePage from "../components/HomePage.astro";
+import { EMAIL, GITHUB, homeCopy, withBase } from "../data/site";
+
+const copy = homeCopy.en;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Pinhao Song",
+  alternateName: "宋品豪",
+  url: new URL(withBase("/"), Astro.site).toString(),
+  email: `mailto:${EMAIL}`,
+  sameAs: [GITHUB],
+  affiliation: { "@type": "CollegeOrUniversity", name: "Beijing Institute of Technology" },
+  knowsAbout: ["AI product design", "Agent systems", "Generative media", "Interactive products"],
+};
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.description}
+  lang="en"
+  canonicalPath="/"
+  alternatePaths={{ en: "/", zh: "/zh/" }}
+  jsonLd={jsonLd}
+>
+  <HomePage lang="en" />
+</BaseLayout>

@@ -1,0 +1,39 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CaseStudyPage from "../../../components/CaseStudyPage.astro";
+import type { ProjectSlug } from "../../../data/site";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("cases", ({ data }) => data.lang === "zh");
+  return entries.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+
+interface Props { entry: CollectionEntry<"cases"> }
+const { entry } = Astro.props as Props;
+const { Content } = await render(entry);
+const data = entry.data;
+const slug = data.slug as ProjectSlug;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: data.title,
+  description: data.summary,
+  creator: { "@type": "Person", name: "宋品豪", url: "https://github.com/wzxsph" },
+  dateCreated: data.year,
+  inLanguage: "zh-CN",
+  url: new URL(`/wzxsph/zh/work/${slug}/`, Astro.site).toString(),
+};
+---
+
+<BaseLayout
+  title={data.seoTitle}
+  description={data.seoDescription}
+  lang="zh"
+  canonicalPath={`/zh/work/${slug}/`}
+  alternatePaths={{ en: `/work/${slug}/`, zh: `/zh/work/${slug}/` }}
+  ogSlug={slug}
+  jsonLd={jsonLd}
+>
+  <CaseStudyPage entry={entry}><Content /></CaseStudyPage>
+</BaseLayout>

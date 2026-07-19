@@ -1,0 +1,29 @@
+{
+  "name": "pinhao-song-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "check": "astro check",
+    "build": "astro build",
+    "check:build": "node scripts/check-build.mjs",
+    "validate": "npm run check && npm run build && npm run check:build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^7.0.3",
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/instrument-sans": "^5.2.8",
+    "astro": "^7.1.1",
+    "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=22.14.0"
+  }
+}

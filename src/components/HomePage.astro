@@ -1,0 +1,323 @@
+---
+import Header from "./Header.astro";
+import ArrowIcon from "./ArrowIcon.astro";
+import ProjectRow from "./ProjectRow.astro";
+import { EMAIL, GITHUB, homeCopy, primaryProjects, shippedWork, type Lang } from "../data/site";
+
+interface Props { lang: Lang }
+
+const { lang } = Astro.props;
+const copy = homeCopy[lang];
+const projects = primaryProjects[lang];
+const moreWork = shippedWork[lang];
+const translationPath = lang === "zh" ? "/" : "/zh/";
+const location = lang === "zh" ? "中国 · 北京" : "Beijing, China";
+const availability = lang === "zh" ? "开放产品合作" : "Open to product collaborations";
+---
+
+<Header lang={lang} translationPath={translationPath} />
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+      <div class="hero-title-block">
+        <p class="eyebrow">AI Product Builder · BIT</p>
+        <h1 id="hero-heading">{copy.hero.heading}</h1>
+      </div>
+      <div class="hero-intro">
+        <p>{copy.hero.body}</p>
+        <div class="hero-actions">
+          <a class="button hero-primary" href="#work">{copy.hero.primary}<ArrowIcon direction="down" /></a>
+          <a class="button button--ghost" href={`mailto:${EMAIL}`}>{copy.hero.email}<ArrowIcon direction="up-right" /></a>
+        </div>
+      </div>
+      <dl class="hero-meta">
+        <div><dt>{lang === "zh" ? "位置" : "Based in"}</dt><dd>{location}</dd></div>
+        <div><dt>{lang === "zh" ? "状态" : "Status"}</dt><dd><span class="availability-dot" aria-hidden="true"></span>{availability}</dd></div>
+        <div><dt>{lang === "zh" ? "入口" : "Direct"}</dt><dd><a href={`mailto:${EMAIL}`}>Email</a> · <a href={GITHUB} target="_blank" rel="noreferrer">GitHub</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="work" class="selected-work" aria-labelledby="work-heading">
+    <div class="section-intro">
+      <p class="eyebrow">{lang === "zh" ? "精选案例 · 01–03" : "Selected work · 01–03"}</p>
+      <div>
+        <h2 id="work-heading">{copy.work.heading}</h2>
+        <p>{copy.work.lead}</p>
+      </div>
+    </div>
+
+    <div class="project-list">
+      {projects.map((project) => <ProjectRow project={project} lang={lang} caseLabel={copy.work.caseStudy} />)}
+    </div>
+  </section>
+
+  <section class="more-work" aria-labelledby="more-work-heading">
+    <div class="more-work-inner">
+      <div class="more-work-heading">
+        <p class="eyebrow">Archive</p>
+        <h2 id="more-work-heading">{copy.more.heading}</h2>
+      </div>
+      <div class="work-index">
+        {moreWork.map((project, index) => (
+          <article class="work-index-row">
+            <span class="index-number">{String(index + 4).padStart(2, "0")}</span>
+            <div class="index-title"><h3>{project.title}</h3><p>{project.category}</p></div>
+            <p class="index-description">{project.description}</p>
+            <div class="index-links">
+              {project.live && <a href={project.live} target="_blank" rel="noreferrer">{copy.more.live}<ArrowIcon direction="up-right" size={15} /></a>}
+              <a href={project.source} target="_blank" rel="noreferrer">{copy.more.source}<ArrowIcon direction="up-right" size={15} /></a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="method-band" aria-label={lang === "zh" ? "构建方法与奖项" : "Method and recognition"}>
+    <div class="method-inner">
+      <div class="method-column">
+        <p class="eyebrow">Process</p>
+        <h2>{copy.how.heading}</h2>
+        <ol class="method-list">
+          {copy.how.items.map(([title, body], index) => (
+            <li><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{body}</p></div></li>
+          ))}
+        </ol>
+      </div>
+      <div class="recognition-column">
+        <p class="eyebrow">Selected recognition</p>
+        <h2>{copy.recognition.heading}</h2>
+        <ul>
+          {copy.recognition.items.map(([award, event]) => <li><span class="award-mark" aria-hidden="true">✦</span><div><strong>{award}</strong><span>{event}</span></div></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about" aria-labelledby="about-heading">
+    <div class="about-inner">
+      <p class="eyebrow">{copy.about.label}</p>
+      <div class="about-copy">
+        <h2 id="about-heading">{copy.about.heading}</h2>
+        <p>{copy.about.body}</p>
+      </div>
+      <div class="now-block">
+        <p class="now-label">{copy.about.nowLabel}</p>
+        <h3>{copy.about.nowHeading}</h3>
+        <p>{copy.about.nowBody}</p>
+      </div>
+      <div class="toolbox">
+        <p>{lang === "zh" ? "能力栈" : "Toolbox"}</p>
+        <span>{copy.about.toolbox}</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-heading">
+    <div class="contact-inner">
+      <p class="eyebrow">{lang === "zh" ? "一起构建" : "Build together"}</p>
+      <div>
+        <h2 id="contact-heading">{copy.contact.heading}</h2>
+        <p>{copy.contact.body}</p>
+      </div>
+      <div class="contact-links">
+        <a class="button" href={`mailto:${EMAIL}`}>{copy.contact.email}<ArrowIcon direction="up-right" /></a>
+        <a class="button button--ghost" href={GITHUB} target="_blank" rel="noreferrer">{copy.contact.github}<ArrowIcon direction="up-right" /></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div><span>© {new Date().getFullYear()} Pinhao Song</span><span>{copy.footer}</span><a href="#main">{lang === "zh" ? "返回顶部" : "Back to top"}<ArrowIcon direction="down" size={15} /></a></div>
+</footer>
+
+<style>
+  .hero-inner,
+  .selected-work,
+  .more-work-inner,
+  .method-inner,
+  .about-inner,
+  .contact-inner,
+  .site-footer > div {
+    width: var(--shell);
+    margin: 0 auto;
+  }
+
+  .hero {
+    min-height: min(720px, calc(100svh - 72px));
+    display: flex;
+    align-items: stretch;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.38fr) minmax(18rem, 0.62fr);
+    grid-template-rows: 1fr auto;
+    gap: 3rem clamp(2rem, 6vw, 7rem);
+    padding: clamp(4.25rem, 8vw, 7.5rem) 0 2.2rem;
+  }
+
+  .hero-title-block { align-self: center; }
+  .hero-title-block .eyebrow { margin-bottom: clamp(1.75rem, 4vw, 3.5rem); }
+
+  h1 {
+    max-width: 10.2ch;
+    font-size: clamp(4rem, 8.4vw, 8rem);
+    font-weight: 520;
+    letter-spacing: -0.072em;
+    line-height: 0.9;
+  }
+
+  .hero-intro {
+    align-self: center;
+    padding-top: 5rem;
+  }
+
+  .hero-intro > p {
+    max-width: 31rem;
+    font-size: clamp(1.08rem, 1.5vw, 1.28rem);
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 2rem;
+  }
+
+  .hero-primary {
+    background: var(--acid);
+    color: var(--ink);
+  }
+
+  .hero-primary:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .hero-meta {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line-strong);
+  }
+
+  .hero-meta > div { padding: 1.15rem 1rem 0 0; }
+  .hero-meta > div + div { padding-left: 1.35rem; border-left: 1px solid var(--line); }
+  .hero-meta dt { margin-bottom: 0.22rem; color: var(--ink-soft); font-size: 0.68rem; letter-spacing: 0.09em; text-transform: uppercase; }
+  .hero-meta dd { display: flex; align-items: center; gap: 0.45rem; font-size: 0.87rem; }
+  .hero-meta a { color: inherit; text-underline-offset: 0.2rem; }
+  .availability-dot { width: 0.48rem; height: 0.48rem; flex: none; border-radius: 50%; background: #14a45a; box-shadow: 0 0 0 3px rgba(20, 164, 90, 0.14); }
+
+  .selected-work { padding-top: clamp(4rem, 6vw, 6.5rem); }
+  .section-intro { display: grid; grid-template-columns: minmax(12rem, 0.68fr) minmax(0, 1.32fr); gap: 2rem clamp(2rem, 5vw, 5.5rem); padding-bottom: clamp(4rem, 7vw, 7rem); }
+  .section-intro .eyebrow { align-self: start; }
+  .section-intro h2 { max-width: 12ch; font-size: clamp(2.8rem, 6vw, 6.2rem); font-weight: 520; letter-spacing: -0.065em; line-height: 0.96; }
+  .section-intro p:not(.eyebrow) { max-width: 34rem; margin-top: 1.5rem; color: var(--ink-soft); font-size: 1.05rem; }
+
+  .more-work { background: var(--paper-deep); }
+  .more-work-inner { padding: clamp(5rem, 9vw, 8rem) 0; }
+  .more-work-heading { display: grid; grid-template-columns: 0.68fr 1.32fr; gap: 2rem clamp(2rem, 5vw, 5.5rem); padding-bottom: 3.4rem; }
+  .more-work-heading h2 { font-size: clamp(2.65rem, 5vw, 5rem); font-weight: 520; letter-spacing: -0.06em; line-height: 1; }
+
+  .work-index { border-top: 1px solid var(--line-strong); }
+  .work-index-row { min-height: 112px; display: grid; grid-template-columns: 3.2rem minmax(10rem, 0.62fr) minmax(16rem, 1fr) auto; gap: 1.3rem; align-items: center; padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
+  .index-number { color: var(--ink-soft); font-size: 0.72rem; font-variant-numeric: tabular-nums; }
+  .index-title h3 { font-size: 1.12rem; font-weight: 620; letter-spacing: -0.025em; }
+  .index-title p { margin-top: 0.18rem; color: var(--ink-soft); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .index-description { max-width: 38rem; color: var(--ink-soft); font-size: 0.9rem; }
+  .index-links { display: flex; justify-content: flex-end; gap: 1rem; }
+  .index-links a { min-height: 44px; display: inline-flex; align-items: center; gap: 0.3rem; color: inherit; font-size: 0.83rem; font-weight: 620; text-underline-offset: 0.25rem; }
+
+  .method-band { background: var(--ink); color: var(--paper); }
+  .method-inner { display: grid; grid-template-columns: 1.35fr 0.65fr; gap: clamp(4rem, 10vw, 10rem); padding: clamp(5.5rem, 10vw, 9rem) 0; }
+  .method-inner h2 { margin-top: 1.5rem; font-size: clamp(2.7rem, 5vw, 5rem); font-weight: 520; letter-spacing: -0.06em; line-height: 1; }
+  .method-list { margin-top: 3.5rem; list-style: none; border-top: 1px solid var(--paper-line); }
+  .method-list li { display: grid; grid-template-columns: 2.2rem 1fr; gap: 1rem; padding: 1.65rem 0; border-bottom: 1px solid var(--paper-line); }
+  .method-list li > span { padding-top: 0.25rem; color: rgba(244, 241, 232, 0.52); font-size: 0.7rem; }
+  .method-list h3 { margin-bottom: 0.35rem; color: var(--acid); font-size: clamp(1.25rem, 2vw, 1.65rem); font-weight: 560; }
+  .method-list p { max-width: 35rem; color: rgba(244, 241, 232, 0.67); }
+  .recognition-column { padding-left: clamp(0rem, 3vw, 3rem); border-left: 1px solid var(--paper-line); }
+  .recognition-column ul { margin-top: 3.5rem; list-style: none; }
+  .recognition-column li { display: grid; grid-template-columns: 1.8rem 1fr; gap: 0.7rem; padding: 1.4rem 0; border-top: 1px solid var(--paper-line); }
+  .recognition-column li:last-child { border-bottom: 1px solid var(--paper-line); }
+  .award-mark { color: var(--acid); }
+  .recognition-column strong,
+  .recognition-column li span:last-child { display: block; }
+  .recognition-column strong { font-weight: 590; }
+  .recognition-column li span:last-child { margin-top: 0.3rem; color: rgba(244, 241, 232, 0.6); font-size: 0.87rem; }
+
+  .about-inner { display: grid; grid-template-columns: 0.42fr minmax(0, 1.05fr) minmax(15rem, 0.53fr); gap: 2rem clamp(2rem, 6vw, 6rem); padding: clamp(6rem, 12vw, 11rem) 0; }
+  .about-copy h2 { max-width: 14ch; font-size: clamp(3rem, 6vw, 6rem); font-weight: 520; letter-spacing: -0.067em; line-height: 0.96; }
+  .about-copy > p { max-width: 39rem; margin-top: 2rem; color: var(--ink-soft); font-size: 1.08rem; }
+  .now-block { align-self: end; padding-top: 1.4rem; border-top: 1px solid var(--line-strong); }
+  .now-label { margin-bottom: 1rem; color: var(--ink-soft); font-size: 0.7rem; letter-spacing: 0.09em; text-transform: uppercase; }
+  .now-block h3 { margin-bottom: 0.7rem; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.03em; }
+  .now-block p:last-child { color: var(--ink-soft); font-size: 0.9rem; }
+  .toolbox { grid-column: 2 / -1; display: grid; grid-template-columns: minmax(8rem, 0.3fr) 1fr; gap: 1rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  .toolbox p { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .toolbox span { color: var(--ink-soft); font-size: 0.88rem; }
+
+  .contact { background: var(--acid); }
+  .contact-inner { display: grid; grid-template-columns: 0.4fr minmax(0, 1.05fr) auto; gap: 2rem clamp(2rem, 6vw, 6rem); align-items: end; padding: clamp(4.5rem, 9vw, 8rem) 0; }
+  .contact-inner h2 { max-width: 11ch; font-size: clamp(3.2rem, 6.8vw, 7rem); font-weight: 520; letter-spacing: -0.07em; line-height: 0.92; }
+  .contact-inner div > p { max-width: 36rem; margin-top: 1.5rem; }
+  .contact-links { display: grid; gap: 0.65rem; min-width: 11rem; }
+
+  .site-footer { background: var(--ink); color: var(--paper); }
+  .site-footer > div { min-height: 92px; display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; gap: 1rem; color: rgba(244, 241, 232, 0.62); font-size: 0.77rem; }
+  .site-footer span:nth-child(2) { text-align: center; }
+  .site-footer a { justify-self: end; display: inline-flex; align-items: center; gap: 0.35rem; color: var(--paper); }
+  .site-footer a :global(svg) { transform: rotate(180deg); }
+
+  @media (max-width: 900px) {
+    .hero { min-height: auto; }
+    .hero-inner { grid-template-columns: 1fr; grid-template-rows: auto; padding-top: 5rem; }
+    .hero-title-block,
+    .hero-intro { align-self: auto; }
+    .hero-intro { padding-top: 0; }
+    .hero-meta { grid-column: 1; }
+    .method-inner { grid-template-columns: 1fr; }
+    .recognition-column { padding-left: 0; padding-top: 4rem; border-left: 0; border-top: 1px solid var(--paper-line); }
+    .about-inner { grid-template-columns: 0.3fr 1fr; }
+    .about-copy { grid-column: 2; }
+    .now-block { grid-column: 2; }
+    .toolbox { grid-column: 2; }
+    .contact-inner { grid-template-columns: 0.3fr 1fr; }
+    .contact-links { grid-column: 2; grid-template-columns: max-content max-content; }
+  }
+
+  @media (max-width: 760px) {
+    .hero-inner { gap: 2.5rem; padding: 4.5rem 0 1.5rem; }
+    h1 { max-width: 9.5ch; font-size: clamp(3.75rem, 18vw, 6.2rem); }
+    .hero-intro > p { font-size: 1.03rem; }
+    .hero-actions { display: grid; }
+    .hero-actions .button { justify-content: space-between; }
+    .hero-meta { grid-template-columns: 1fr; }
+    .hero-meta > div { padding: 0.85rem 0; border-bottom: 1px solid var(--line); }
+    .hero-meta > div + div { padding-left: 0; border-left: 0; }
+    .section-intro,
+    .more-work-heading { grid-template-columns: 1fr; gap: 1.4rem; }
+    .section-intro h2 { font-size: clamp(3rem, 15vw, 4.7rem); }
+    .work-index-row { grid-template-columns: 2rem 1fr auto; gap: 0.85rem; align-items: start; padding: 1.4rem 0; }
+    .index-description { grid-column: 2 / -1; }
+    .index-links { grid-column: 2 / -1; justify-content: flex-start; }
+    .method-inner { gap: 4rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 1.8rem; }
+    .about-copy,
+    .now-block,
+    .toolbox { grid-column: 1; }
+    .about-copy h2 { font-size: clamp(3.1rem, 15vw, 4.8rem); }
+    .toolbox { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; align-items: start; }
+    .contact-inner h2 { font-size: clamp(3.3rem, 16vw, 5rem); }
+    .contact-links { grid-column: 1; grid-template-columns: 1fr; width: 100%; }
+    .contact-links .button { justify-content: space-between; }
+    .site-footer > div { grid-template-columns: 1fr auto; padding: 1.4rem 0; }
+    .site-footer span:nth-child(2) { display: none; }
+  }
+</style>

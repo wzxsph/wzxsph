@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ArrowIcon from "../components/ArrowIcon.astro";
+import { homePath } from "../data/site";
+---
+
+<BaseLayout
+  title="Page not found — Pinhao Song"
+  description="The requested page could not be found."
+  lang="en"
+  canonicalPath="/404.html"
+  alternatePaths={{ en: "/404.html", zh: "/404.html" }}
+>
+  <main id="main" class="not-found">
+    <div>
+      <p class="eyebrow">404 · Off the map</p>
+      <h1>This page hasn't shipped.</h1>
+      <p>The route may have moved, but the work is still here.</p>
+      <a class="button" href={homePath("en")}>Back to selected work<ArrowIcon /></a>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found { min-height: 100svh; display: grid; place-items: center; background: var(--acid); }
+  .not-found > div { width: var(--shell); padding: 4rem 0; }
+  h1 { max-width: 9ch; margin: 1.5rem 0; font-size: clamp(4rem, 12vw, 10rem); font-weight: 520; letter-spacing: -0.075em; line-height: 0.88; }
+  .not-found p:not(.eyebrow) { max-width: 28rem; font-size: 1.1rem; }
+  .not-found .button { margin-top: 2rem; }
+</style>

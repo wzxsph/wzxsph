@@ -1,0 +1,255 @@
+---
+import fashionCover from "../../assets/projects/fashionai-studio.svg?url";
+import tt16Cover from "../../assets/projects/tt16.jpg?url";
+import storyweaverCover from "../../assets/projects/storyweaver.svg?url";
+import ArrowIcon from "./ArrowIcon.astro";
+import { casePath, type Lang, type ProjectSlug } from "../data/site";
+
+interface Project {
+  slug: ProjectSlug;
+  order: string;
+  title: string;
+  category: string;
+  summary: string;
+  proof: string[];
+  links: { label: string; href: string }[];
+}
+
+interface Props {
+  project: Project;
+  lang: Lang;
+  caseLabel: string;
+}
+
+const { project, lang, caseLabel } = Astro.props;
+const covers: Record<ProjectSlug, string> = {
+  "fashionai-studio": fashionCover,
+  tt16: tt16Cover,
+  storyweaver: storyweaverCover,
+};
+const alt = {
+  en: {
+    "fashionai-studio": "FashionAI Studio product workflow interface",
+    tt16: "TT16 trading-style assessment interface",
+    storyweaver: "StoryWeaver long-form fiction workflow",
+  },
+  zh: {
+    "fashionai-studio": "FashionAI Studio 商品素材工作流界面",
+    tt16: "TT16 交易人格测试界面",
+    storyweaver: "StoryWeaver 长篇创作工作流",
+  },
+}[lang][project.slug];
+---
+
+<article class={`project-row project-row--${project.slug}`}>
+  <div class="project-heading">
+    <span class="project-number">{project.order}</span>
+    <div>
+      <p class="project-category">{project.category}</p>
+      <h3>{project.title}</h3>
+    </div>
+  </div>
+
+  <a class="project-visual" href={casePath(lang, project.slug)} aria-label={`${caseLabel}: ${project.title}`}>
+    <img src={covers[project.slug]} alt={alt} loading="eager" decoding="async" />
+    <span class="visual-action" aria-hidden="true"><ArrowIcon size={20} /></span>
+  </a>
+
+  <div class="project-details">
+    <p class="project-summary">{project.summary}</p>
+    <ul class="proof-list" aria-label={lang === "zh" ? "交付证据" : "Shipped evidence"}>
+      {project.proof.map((item) => <li>{item}</li>)}
+    </ul>
+    <div class="project-links">
+      <a class="button" href={casePath(lang, project.slug)}>{caseLabel}<ArrowIcon /></a>
+      {project.links.map((link) => (
+        <a class="text-link" href={link.href} target="_blank" rel="noreferrer">{link.label}<ArrowIcon direction="up-right" size={15} /></a>
+      ))}
+    </div>
+  </div>
+</article>
+
+<style>
+  .project-row {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.68fr) minmax(0, 1.32fr);
+    gap: 2rem clamp(2rem, 5vw, 5.5rem);
+    padding: clamp(3.5rem, 7vw, 6.75rem) 0;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  .project-heading {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .project-number {
+    flex: none;
+    padding-top: 0.2rem;
+    color: var(--ink-soft);
+    font-size: 0.76rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.08em;
+  }
+
+  .project-category {
+    margin-bottom: 0.5rem;
+    color: var(--ink-soft);
+    font-size: 0.76rem;
+    font-weight: 620;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    max-width: 10ch;
+    font-size: clamp(2rem, 4.2vw, 4.35rem);
+    font-weight: 540;
+    letter-spacing: -0.06em;
+    line-height: 0.96;
+  }
+
+  .project-visual {
+    position: relative;
+    grid-column: 2;
+    aspect-ratio: 2.34 / 1;
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+    background: var(--paper-deep);
+  }
+
+  .project-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 600ms var(--ease), filter 300ms ease;
+  }
+
+  .project-row--tt16 .project-visual img {
+    object-position: center 48%;
+  }
+
+  .project-visual:hover img {
+    transform: scale(1.018);
+  }
+
+  .visual-action {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--ink);
+    background: var(--acid);
+    color: var(--ink);
+    transition: transform 220ms var(--ease);
+  }
+
+  .project-visual:hover .visual-action {
+    transform: translateX(3px);
+  }
+
+  .project-details {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(12rem, 0.8fr);
+    gap: 1.5rem 3rem;
+  }
+
+  .project-summary {
+    max-width: 38rem;
+    font-size: clamp(1.12rem, 1.7vw, 1.5rem);
+    line-height: 1.45;
+  }
+
+  .proof-list {
+    display: grid;
+    align-content: start;
+    gap: 0.55rem;
+    list-style: none;
+  }
+
+  .proof-list li {
+    position: relative;
+    padding-left: 1.05rem;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+
+  .proof-list li::before {
+    position: absolute;
+    top: 0.68em;
+    left: 0;
+    width: 0.35rem;
+    height: 0.35rem;
+    background: var(--ink);
+    content: "";
+  }
+
+  .project-links {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.3rem;
+    padding-top: 0.25rem;
+  }
+
+  @media (max-width: 840px) {
+    .project-row {
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+    }
+
+    .project-visual,
+    .project-details {
+      grid-column: 1;
+    }
+
+    .project-details {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .project-row {
+      padding: 3.4rem 0;
+    }
+
+    h3 {
+      max-width: none;
+      font-size: clamp(2.45rem, 13vw, 3.65rem);
+    }
+
+    .project-visual {
+      margin-inline: calc((100vw - 100%) / -2);
+      width: 100vw;
+      border-inline: 0;
+      aspect-ratio: 1.36 / 1;
+    }
+
+    .project-row--fashionai-studio .project-visual img,
+    .project-row--storyweaver .project-visual img {
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .project-details {
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+
+    .project-links {
+      grid-column: 1;
+      align-items: flex-start;
+    }
+
+    .project-links .button {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+</style>

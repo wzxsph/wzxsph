@@ -1,0 +1,68 @@
+---
+lang: en
+slug: tt16
+order: "02"
+title: TT16 · TradeType 16
+category: Behavior design
+summary: Twenty realistic decisions map four behavioral axes into sixteen trading styles and a complete browser-local report.
+year: "2026"
+status: Free experience + commercial architecture sandbox
+role: Independent — product, design, and engineering
+tech:
+  - React 19
+  - TypeScript
+  - Vite
+  - Cloudflare Workers
+  - D1
+proof:
+  - 20 decision scenarios designed around behavior rather than self-description
+  - 16 style outcomes across four scoring axes
+  - 3–5 minute flow with local scoring, storage, and image export
+  - Separate Worker + D1 sandbox with mock payment only
+links:
+  - label: Try the free experience
+    href: https://wzxsph.github.io/TT16/
+    kind: primary
+  - label: Open commercial sandbox
+    href: https://tt16-commercial-sandbox.samsong-1a3.workers.dev
+    kind: secondary
+  - label: View source
+    href: https://github.com/wzxsph/TT16
+    kind: secondary
+nextSlug: storyweaver
+nextLabel: StoryWeaver
+seoTitle: TT16 TradeType 16 case study — Pinhao Song
+seoDescription: How TT16 turns twenty decision scenarios into a local, shareable trading-style report while keeping product and commercial boundaries explicit.
+---
+
+## Ask for decisions, not flattering self-descriptions
+
+Personality tests often invite users to describe who they wish they were. TT16 instead presents twenty concrete trading situations—uncertainty, drawdown, disagreement, timing—and asks what the user would do next.
+
+The result is not investment advice. It is a compact mirror for decision habits.
+
+## Four axes, sixteen legible styles
+
+The scoring model organizes answers across four behavioral tensions. Their combinations produce sixteen named styles, each explained through tendencies, strengths, blind spots, and reflection prompts.
+
+The full path takes roughly three to five minutes:
+
+1. enter without creating an account;
+2. answer twenty scenario-based choices;
+3. receive the complete report in the browser;
+4. export a 1:1 or 9:16 result card for sharing.
+
+Scoring, answer storage, and report generation stay local in the free version. That privacy decision also makes the experience fast to try and easy to audit.
+
+## Two deployments, two honest promises
+
+| Surface | What it proves | What it does not do |
+| --- | --- | --- |
+| Free static experience | The complete assessment, report, and export flow | No signup and no server-side answer storage |
+| Commercial architecture sandbox | Worker, D1, order states, and a paywall-shaped journey | Mock payment only; it never creates a real charge |
+
+Keeping these surfaces separate avoids pretending that a payment integration exists when it does not. It also lets collaborators inspect the commercial state machine without risking a transaction.
+
+## The boundary is visible
+
+TT16 does not forecast returns, connect to a broker, or tell someone what to buy. Its language and report structure focus on behavioral reflection. The product’s job is to make patterns easier to notice—not to turn a playful typology into financial authority.
