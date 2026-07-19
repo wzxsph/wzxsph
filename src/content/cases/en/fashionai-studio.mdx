@@ -3,10 +3,10 @@ lang: en
 slug: fashionai-studio
 order: "01"
 title: FashionAI Studio
-category: Generative media workflow
-summary: A reviewable content-production workflow that turns one garment image and a PNG logo into product shots, model images, and social assets.
+category: Human-reviewed generative media
+summary: A six-stage editorial workspace that turns garment facts and source media into traceable candidates, explicit human choices, and a manifest-backed ZIP.
 year: "2026"
-status: Runnable mock + documented real generation
+status: Editorial Mock v7 · merged and deployed
 role: Independent — product, design, and engineering
 tech:
   - React 18
@@ -15,15 +15,16 @@ tech:
   - Node.js
   - Express
   - SQLite
-  - Cloudflare
+  - Vitest
+  - Cloudflare Pages
 proof:
-  - Browser-local mock that completes the full workflow
-  - Real gpt-image-2 generation sample documented in the repository
-  - Human review, task history, traceable delivery manifest, and ZIP export
-  - Explicit hard-cost cap of ¥100 per SKU
+  - Six URL-addressable stages across desktop and mobile
+  - Five original demo assets with prompts, dimensions, hashes, and an AI declaration
+  - Executable quality evidence kept separate from explicit human selection
+  - Selected-only ZIP with manifest, recorded cost, and rights boundaries
 links:
-  - label: Open live mock
-    href: https://fashionai-studio-demo.pages.dev/
+  - label: Open live Mock v7
+    href: https://fashionai-studio-demo.pages.dev/#/showcase
     kind: primary
   - label: View source
     href: https://github.com/wzxsph/fashionai-studio
@@ -33,36 +34,47 @@ links:
     kind: secondary
 nextSlug: tt16
 nextLabel: TT16 · TradeType 16
-seoTitle: FashionAI Studio case study — Pinhao Song
-seoDescription: A reviewable generative-media workflow for turning garment inputs into product, model, and social assets with explicit cost and delivery boundaries.
+seoTitle: FashionAI Studio — six-stage AI production workflow
+seoDescription: FashionAI Studio is an evidence-first apparel content workspace with six explicit stages, executable quality checks, human review, and manifest-backed delivery.
 ---
 
-## The hard part was not generating one good image
+## The product is the chain of evidence
 
-Fashion content production becomes a product problem when the same source garment has to stay recognizable across several formats, every result needs a review trail, and the cost of retries must remain predictable. FashionAI Studio treats generation as one stage in a small production system—not as a single prompt box.
+Generating an image is only one event in a usable content workflow. A collaborator also needs to know which product facts were supplied, which source assets were used, what the queue produced, what automated rules observed, who selected the final result, and what was ultimately packaged.
 
-> One garment image + one transparent PNG logo become a controlled set of product, model, and X / Twitter assets.
+FashionAI Studio makes those decisions visible instead of collapsing them into a single “AI completed” state.
 
-## A complete path from input to delivery
+> Brief → Design → Generate → Results → Review → Deliver. Every stage can be revisited, and every missing prerequisite is explained in place.
 
-1. **Define the job.** Upload the garment and logo, choose the required formats, and create a traceable task.
-2. **Generate variants.** Produce the product main image, model image, and social creative through an OpenAI-compatible image endpoint.
-3. **Review deliberately.** Keep the generated history visible so a human can approve, reject, or retry before anything ships.
-4. **Package the result.** Export approved files with a delivery manifest and ZIP rather than leaving assets scattered across chat history.
+## Six stages with different responsibilities
 
-The public demo runs in a browser-local mock mode, so the entire interaction can be inspected without credentials or paid calls. The repository separately documents a real `gpt-image-2` generation sample and the server path used for live mode.
+1. **Brief / Product facts.** Record the mode, target market, garment facts, and forbidden claims before generation begins.
+2. **Design / Source media.** Upload front and back views, reuse templates, and place a transparent mark on a deterministic canvas.
+3. **Generate / Production plan.** Choose the fast three-image chain or assemble a custom deliverable pack.
+4. **Results / Candidate output.** Follow real queue state, inspect candidates, download an item, or retry it independently.
+5. **Review / Human decision.** Read executable `pass`, `warn`, and `fail` evidence, then make an explicit selection. Risky results are never preselected.
+6. **Deliver / Traceable package.** Export only selected items with a readable directory preview and `manifest.json`.
 
-## Evidence designed into the workflow
+The active stage is stored in the URL, while review selections are scoped to the project in `sessionStorage`. Desktop uses a primary canvas and sticky Inspector; the 390px layout keeps the same path with a collapsible Inspector and sticky action bar.
 
-| Product question | Shipped answer |
-| --- | --- |
-| Can someone evaluate it safely? | A runnable static mock preserves the full task and review flow. |
-| Can generation be audited? | Task history and a delivery manifest keep outputs tied to their source job. |
-| Where does judgment happen? | Approval is an explicit human step before packaging. |
-| How is spend bounded? | The product brief sets a hard-cost ceiling of ¥100 per SKU. |
+## One original input-to-delivery fixture
 
-## Boundaries are part of the product
+The public Mock now uses one coherent, unbranded editorial set: a graphite garment input, a transparent geometric mark, a white-background product candidate, a fictional model candidate, and a vertical social candidate.
 
-Mock and real modes are visibly separated. SQLite backs server-side task records, while the mock stays local to the browser. Failed generation, unapproved outputs, and cost limits are treated as interface states—not hidden implementation details.
+Every public file ships with its dimensions and SHA-256 checksum. The repository also includes the generation notes, prompts, and a plain-language AI declaration. These assets are demo evidence—not a customer case or a claim of commercial performance.
 
-This makes the prototype useful for a product conversation: a collaborator can try the workflow, inspect the architecture, and identify what would need to change before a production rollout.
+## Three signals that the interface never conflates
+
+| Signal | What it proves | What it does not prove |
+| --- | --- | --- |
+| Task succeeded | The configured generation job returned an output. | That the output is accurate or publishable. |
+| Quality conclusion | Executable rules recorded a `pass`, `warn`, or `fail` observation. | That a person approved the result. |
+| Human selection | A reviewer deliberately included that candidate in this delivery. | That rights or product facts no longer need final verification. |
+
+This distinction is the core interaction decision. It keeps retries, warnings, and final delivery legible to both product and engineering reviewers.
+
+## Boundaries ship with the output
+
+The Mock remains browser-local and does not call a paid model. Real API, authentication, database, queue, quality, and export contracts remain compatible with the earlier implementation. Cost is shown only when a task recorded one; otherwise the interface says it is not configured. Upload rights and final commercial review remain the operator's responsibility.
+
+The result is a much stronger collaboration surface: someone can open the public product, inspect a complete workflow, verify the evidence pack, and discuss production changes without guessing which parts are real.

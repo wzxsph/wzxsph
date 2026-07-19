@@ -3,7 +3,7 @@ import sharp from "sharp";
 
 const cards = {
   home: { eyebrow: "PINHAO SONG · AI PRODUCT BUILDER", title: "AI systems, made usable.", note: "Agent systems · Generative media · Interactive products", index: "01—03" },
-  "fashionai-studio": { eyebrow: "CASE STUDY · 01", title: "FashionAI\nStudio", note: "A reviewable generative-media workflow", index: "SHIP" },
+  "fashionai-studio": { eyebrow: "CASE STUDY · 01", title: "FashionAI\nStudio", note: "Six stages · Quality evidence · Human delivery", index: "SHIP" },
   tt16: { eyebrow: "CASE STUDY · 02", title: "TT16 ·\nTradeType 16", note: "20 decisions · 16 trading styles", index: "PLAY" },
   storyweaver: { eyebrow: "CASE STUDY · 03", title: "StoryWeaver", note: "5 agents · 27 commands · 13 checks", index: "LOOP" },
 } as const;

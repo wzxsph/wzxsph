@@ -1,95 +1,103 @@
 <svg width="1200" height="480" viewBox="0 0 1200 480" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">FashionAI Studio</title>
-  <desc id="desc">A code-drawn product banner showing a fashion content workspace</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="480" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#111827"/>
-      <stop offset="0.58" stop-color="#172033"/>
-      <stop offset="1" stop-color="#25304A"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="168" y1="330" x2="422" y2="330" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F97316"/>
-      <stop offset="1" stop-color="#FB923C"/>
-    </linearGradient>
-    <linearGradient id="card" x1="708" y1="155" x2="1020" y2="407" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F8FAFC"/>
-      <stop offset="1" stop-color="#E7EAF0"/>
-    </linearGradient>
-    <filter id="shadow" x="-48" y="-48" width="616" height="460" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#050914" flood-opacity="0.42"/>
-    </filter>
-  </defs>
+  <title id="title">FashionAI Studio editorial workspace</title>
+  <desc id="desc">A code-drawn FashionAI Studio interface with six workflow stages, generated garment candidates, quality evidence, and human review</desc>
 
-  <rect width="1200" height="480" rx="28" fill="url(#bg)"/>
-  <circle cx="1102" cy="-6" r="214" fill="#F97316" fill-opacity="0.09"/>
-  <circle cx="15" cy="458" r="170" fill="#38BDF8" fill-opacity="0.06"/>
-  <path d="M0 404C186 354 301 439 481 397C662 355 840 273 1200 333V480H0V404Z" fill="#FFFFFF" fill-opacity="0.025"/>
+  <rect width="1200" height="480" fill="#F4F1E8"/>
+  <rect width="1200" height="56" fill="#171717"/>
+  <rect x="24" y="17" width="22" height="22" fill="#D8FF3E"/>
+  <path d="M29 28H41M35 22V34" stroke="#171717" stroke-width="2"/>
+  <text x="58" y="35" fill="#F4F1E8" font-family="Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1.5">FASHIONAI STUDIO</text>
+  <text x="1170" y="34" text-anchor="end" fill="#A9A79F" font-family="Arial,sans-serif" font-size="11" letter-spacing="1.3">EDITORIAL MOCK V7</text>
 
-  <g transform="translate(72 64)">
-    <rect width="44" height="44" rx="13" fill="#F97316"/>
-    <path d="M22 9L25.6 18.4L35 22L25.6 25.6L22 35L18.4 25.6L9 22L18.4 18.4L22 9Z" fill="white"/>
-    <text x="58" y="30" fill="#F8FAFC" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700">FashionAI Studio</text>
+  <rect y="56" width="220" height="424" fill="#171717"/>
+  <text x="24" y="92" fill="#77766F" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.6">STUDIO</text>
+  <rect x="14" y="108" width="192" height="42" fill="#D8FF3E"/>
+  <text x="30" y="134" fill="#171717" font-family="Arial,sans-serif" font-size="13" font-weight="700">工作台</text>
+  <text x="30" y="178" fill="#D1CFC5" font-family="Arial,sans-serif" font-size="13">项目</text>
+  <text x="30" y="216" fill="#D1CFC5" font-family="Arial,sans-serif" font-size="13">Playground</text>
+  <text x="30" y="254" fill="#D1CFC5" font-family="Arial,sans-serif" font-size="13">素材</text>
+  <text x="30" y="292" fill="#D1CFC5" font-family="Arial,sans-serif" font-size="13">任务</text>
+  <path d="M24 326H196" stroke="#3E3E3A"/>
+  <text x="24" y="358" fill="#77766F" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.6">ACTIVE PROJECT</text>
+  <text x="24" y="384" fill="#F4F1E8" font-family="Arial,sans-serif" font-size="13" font-weight="700">Graphite / 01</text>
+  <text x="24" y="406" fill="#939189" font-family="Arial,sans-serif" font-size="11">Review in progress</text>
+  <rect x="24" y="431" width="172" height="4" fill="#3E3E3A"/>
+  <rect x="24" y="431" width="132" height="4" fill="#D8FF3E"/>
+
+  <text x="248" y="87" fill="#77766F" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.6">PROJECT / GRAPHITE EDITORIAL PACK</text>
+  <text x="248" y="116" fill="#171717" font-family="Arial,sans-serif" font-size="25" font-weight="700">人工审核生成工作台</text>
+  <text x="1170" y="105" text-anchor="end" fill="#5D5B55" font-family="Arial,sans-serif" font-size="11">03 candidates · 01 selected</text>
+
+  <g font-family="Arial,sans-serif" font-size="10" font-weight="700">
+    <rect x="248" y="136" width="138" height="34" fill="#EEEAE0" stroke="#171717"/>
+    <text x="260" y="157" fill="#171717">01  BRIEF</text>
+    <rect x="386" y="136" width="138" height="34" fill="#EEEAE0" stroke="#171717"/>
+    <text x="398" y="157" fill="#171717">02  DESIGN</text>
+    <rect x="524" y="136" width="138" height="34" fill="#EEEAE0" stroke="#171717"/>
+    <text x="536" y="157" fill="#171717">03  GENERATE</text>
+    <rect x="662" y="136" width="138" height="34" fill="#EEEAE0" stroke="#171717"/>
+    <text x="674" y="157" fill="#171717">04  RESULTS</text>
+    <rect x="800" y="136" width="138" height="34" fill="#D8FF3E" stroke="#171717"/>
+    <text x="812" y="157" fill="#171717">05  REVIEW</text>
+    <rect x="938" y="136" width="232" height="34" fill="#EEEAE0" stroke="#171717"/>
+    <text x="950" y="157" fill="#171717">06  DELIVER</text>
   </g>
 
-  <g transform="translate(72 151)">
-    <rect width="198" height="30" rx="15" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.12"/>
-    <circle cx="18" cy="15" r="5" fill="#4ADE80"/>
-    <text x="31" y="20" fill="#DDE5F2" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="600" letter-spacing="0.8">RUNNABLE MVP · MOCK</text>
-    <text x="0" y="83" fill="white" font-family="Inter,Arial,sans-serif" font-size="48" font-weight="750">服装商品素材，</text>
-    <text x="0" y="141" fill="#CBD5E1" font-family="Inter,Arial,sans-serif" font-size="48" font-weight="750">从想法到交付。</text>
-    <text x="0" y="188" fill="#94A3B8" font-family="Inter,Arial,sans-serif" font-size="17">Logo 商品主图 · 模特图 · X / Twitter 宣传图</text>
-    <rect y="218" width="246" height="52" rx="12" fill="url(#accent)"/>
-    <text x="22" y="251" fill="white" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700">OPEN INTERACTIVE DEMO</text>
-    <path d="M216 244H231M226 239L231 244L226 249" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="248" y="190" width="640" height="266" fill="#FBF8F0" stroke="#171717"/>
+  <text x="266" y="218" fill="#171717" font-family="Arial,sans-serif" font-size="13" font-weight="700">候选结果 / CANDIDATES</text>
+  <text x="870" y="218" text-anchor="end" fill="#77766F" font-family="Arial,sans-serif" font-size="10">Quality is evidence, not approval</text>
+
+  <g transform="translate(266 234)">
+    <rect width="188" height="184" fill="#E7E3DA" stroke="#171717"/>
+    <rect x="14" y="14" width="160" height="116" fill="#FDFCF8"/>
+    <ellipse cx="94" cy="116" rx="46" ry="5" fill="#CEC9BE"/>
+    <path d="M70 39L50 49L32 72L51 84L63 70V111H125V70L137 84L156 72L138 49L118 39C113 49 105 53 94 53C83 53 75 49 70 39Z" fill="#292B2A"/>
+    <path d="M81 40C84 47 88 49 94 49C100 49 104 47 107 40" stroke="#686A67" stroke-width="3"/>
+    <rect y="130" width="188" height="54" fill="#171717"/>
+    <text x="12" y="151" fill="#F4F1E8" font-family="Arial,sans-serif" font-size="10" font-weight="700">PRODUCT / 01</text>
+    <circle cx="148" cy="148" r="5" fill="#D8FF3E"/>
+    <text x="159" y="152" fill="#D8FF3E" font-family="Arial,sans-serif" font-size="9">PASS</text>
+    <text x="12" y="171" fill="#97958E" font-family="Arial,sans-serif" font-size="9">2048 × 2048 · selected</text>
   </g>
 
-  <g filter="url(#shadow)" transform="translate(605 60)">
-    <rect width="520" height="364" rx="19" fill="#F8FAFC"/>
-    <path d="M0 19C0 8.5 8.5 0 19 0H501C511.5 0 520 8.5 520 19V48H0V19Z" fill="#EEF1F5"/>
-    <circle cx="23" cy="24" r="5" fill="#FB7185"/>
-    <circle cx="40" cy="24" r="5" fill="#FBBF24"/>
-    <circle cx="57" cy="24" r="5" fill="#4ADE80"/>
-    <rect x="91" y="14" width="337" height="20" rx="10" fill="#DDE3EA"/>
-    <text x="191" y="28" fill="#738096" font-family="Inter,Arial,sans-serif" font-size="10">fashionai-studio-demo.pages.dev</text>
-
-    <rect y="48" width="72" height="316" fill="#131B2A"/>
-    <rect x="20" y="70" width="32" height="32" rx="10" fill="#F97316"/>
-    <path d="M36 77L38.3 83.7L45 86L38.3 88.3L36 95L33.7 88.3L27 86L33.7 83.7L36 77Z" fill="white"/>
-    <rect x="20" y="126" width="32" height="7" rx="3.5" fill="#667085"/>
-    <rect x="20" y="151" width="25" height="7" rx="3.5" fill="#384457"/>
-    <rect x="20" y="176" width="29" height="7" rx="3.5" fill="#384457"/>
-    <rect x="20" y="201" width="23" height="7" rx="3.5" fill="#384457"/>
-
-    <text x="100" y="84" fill="#F97316" font-family="Inter,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="1.3">MOCK WORKSPACE</text>
-    <text x="100" y="111" fill="#172033" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="750">Northbound 创作团队</text>
-
-    <g transform="translate(100 132)">
-      <rect width="119" height="50" rx="10" fill="#F0F3F7"/>
-      <text x="13" y="20" fill="#7C8799" font-family="Inter,Arial,sans-serif" font-size="10">素材</text>
-      <text x="13" y="40" fill="#172033" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="750">2</text>
-      <rect x="131" width="119" height="50" rx="10" fill="#F0F3F7"/>
-      <text x="144" y="20" fill="#7C8799" font-family="Inter,Arial,sans-serif" font-size="10">生成记录</text>
-      <text x="144" y="40" fill="#172033" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="750">2</text>
-      <rect x="262" width="119" height="50" rx="10" fill="#FFF3E9"/>
-      <text x="275" y="20" fill="#A75920" font-family="Inter,Arial,sans-serif" font-size="10">真实调用</text>
-      <text x="275" y="40" fill="#F97316" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="750">0</text>
-    </g>
-
-    <g transform="translate(100 201)">
-      <rect width="184" height="133" rx="14" fill="url(#card)"/>
-      <ellipse cx="92" cy="116" rx="56" ry="7" fill="#AAB2C0" fill-opacity="0.35"/>
-      <path d="M68 31L47 43L27 69L48 83L61 67V109H123V67L136 83L157 69L136 43L115 31C109 41 102 45 92 45C82 45 75 41 68 31Z" fill="#222A37"/>
-      <path d="M80 31C82 37 86 40 92 40C98 40 102 37 104 31" stroke="#4C5666" stroke-width="3" stroke-linecap="round"/>
-      <rect x="64" y="113" width="56" height="4" rx="2" fill="#FFFFFF" fill-opacity="0.5"/>
-      <rect x="198" width="184" height="133" rx="14" fill="#E7E2DC"/>
-      <ellipse cx="290" cy="118" rx="42" ry="6" fill="#818895" fill-opacity="0.25"/>
-      <circle cx="290" cy="24" r="12" fill="#C89375"/>
-      <path d="M273 39C279 34 301 34 307 39L314 84H266L273 39Z" fill="#232B38"/>
-      <path d="M273 42L258 70" stroke="#C89375" stroke-width="8" stroke-linecap="round"/>
-      <path d="M307 42L322 70" stroke="#C89375" stroke-width="8" stroke-linecap="round"/>
-      <path d="M278 84L276 115M302 84L304 115" stroke="#374151" stroke-width="10" stroke-linecap="round"/>
-      <circle cx="362" cy="17" r="10" fill="#DCFCE7"/>
-      <path d="M357 17L361 21L368 13" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
+  <g transform="translate(470 234)">
+    <rect width="188" height="184" fill="#E7E3DA" stroke="#171717"/>
+    <rect x="14" y="14" width="160" height="116" fill="#D8D4CB"/>
+    <circle cx="94" cy="38" r="13" fill="#BA8469"/>
+    <path d="M75 56C82 49 106 49 113 56L120 101H68L75 56Z" fill="#292B2A"/>
+    <path d="M76 58L57 85M112 58L131 85" stroke="#BA8469" stroke-width="9" stroke-linecap="round"/>
+    <path d="M79 101L76 127M109 101L112 127" stroke="#4B4D4B" stroke-width="11" stroke-linecap="round"/>
+    <rect y="130" width="188" height="54" fill="#171717"/>
+    <text x="12" y="151" fill="#F4F1E8" font-family="Arial,sans-serif" font-size="10" font-weight="700">MODEL / 02</text>
+    <circle cx="148" cy="148" r="5" fill="#FFB547"/>
+    <text x="159" y="152" fill="#FFB547" font-family="Arial,sans-serif" font-size="9">WARN</text>
+    <text x="12" y="171" fill="#97958E" font-family="Arial,sans-serif" font-size="9">2048 × 2048 · review</text>
   </g>
+
+  <g transform="translate(674 234)">
+    <rect width="196" height="184" fill="#E7E3DA" stroke="#171717"/>
+    <rect x="14" y="14" width="168" height="116" fill="#171717"/>
+    <rect x="26" y="27" width="41" height="14" fill="#D8FF3E"/>
+    <text x="30" y="37" fill="#171717" font-family="Arial,sans-serif" font-size="7" font-weight="700">NEW DROP</text>
+    <path d="M71 53L56 61L44 78L58 87L67 77V112H111V77L120 87L134 78L122 61L107 53C103 60 98 63 89 63C80 63 75 60 71 53Z" fill="#EBE8E0"/>
+    <text x="147" y="104" text-anchor="middle" fill="#F4F1E8" font-family="Arial,sans-serif" font-size="8" letter-spacing="1">GRAPHITE</text>
+    <rect y="130" width="196" height="54" fill="#171717"/>
+    <text x="12" y="151" fill="#F4F1E8" font-family="Arial,sans-serif" font-size="10" font-weight="700">SOCIAL / 03</text>
+    <circle cx="153" cy="148" r="5" fill="#D8FF3E"/>
+    <text x="164" y="152" fill="#D8FF3E" font-family="Arial,sans-serif" font-size="9">PASS</text>
+    <text x="12" y="171" fill="#97958E" font-family="Arial,sans-serif" font-size="9">1080 × 1350 · ready</text>
+  </g>
+
+  <rect x="908" y="190" width="262" height="266" fill="#171717"/>
+  <text x="928" y="219" fill="#77766F" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.5">INSPECTOR / HUMAN REVIEW</text>
+  <text x="928" y="250" fill="#F4F1E8" font-family="Arial,sans-serif" font-size="15" font-weight="700">Product / 01</text>
+  <path d="M928 267H1150" stroke="#3E3E3A"/>
+  <circle cx="934" cy="291" r="5" fill="#D8FF3E"/>
+  <text x="949" y="295" fill="#D8FF3E" font-family="Arial,sans-serif" font-size="10" font-weight="700">QUALITY PASS</text>
+  <text x="928" y="320" fill="#B4B2AA" font-family="Arial,sans-serif" font-size="10">Garment silhouette preserved</text>
+  <text x="928" y="340" fill="#B4B2AA" font-family="Arial,sans-serif" font-size="10">No forbidden claims detected</text>
+  <text x="928" y="360" fill="#B4B2AA" font-family="Arial,sans-serif" font-size="10">Source asset trace recorded</text>
+  <rect x="928" y="381" width="222" height="48" fill="#D8FF3E"/>
+  <text x="1039" y="410" text-anchor="middle" fill="#171717" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing=".7">SELECT FOR DELIVERY →</text>
+  <text x="928" y="447" fill="#77766F" font-family="Arial,sans-serif" font-size="9">Human choice is recorded separately.</text>
 </svg>
