@@ -27,16 +27,16 @@ I like to begin with a small but complete experience, then connect the data, mod
 
 ### 01 · FashionAI Studio
 
-<a href="https://fashionai-studio-demo.pages.dev/">
+<a href="https://fashionai-studio-demo.pages.dev/#/showcase">
   <img src="./assets/projects/fashionai-studio.svg" width="100%" alt="FashionAI Studio product workspace" />
 </a>
 
-- **Product:** an AI content workspace that turns a garment image and PNG logo into reviewable product shots, model images, and social assets.
-- **Shipped proof:** an interactive browser-local Mock, a documented real <code>gpt-image-2</code> generation sample, task history, human review, downloadable outputs, and traceable delivery manifests.
+- **Product:** a six-stage editorial workspace that turns garment facts and source media into traceable candidates, explicit human choices, and a manifest-backed ZIP.
+- **Shipped proof:** a browser-local Mock v7, five original demo assets with checksums and an AI declaration, executable quality evidence, human review, selected-only export, and recorded cost and rights boundaries.
 
-<p><code>React</code> <code>TypeScript</code> <code>Node.js</code> <code>OpenAI-compatible</code> <code>Cloudflare</code></p>
+<p><code>React</code> <code>TypeScript</code> <code>Node.js</code> <code>Vitest</code> <code>Cloudflare Pages</code></p>
 
-**[Open Live Mock](https://fashionai-studio-demo.pages.dev/)** · **[Source](https://github.com/wzxsph/fashionai-studio)** · **[Product brief](https://github.com/wzxsph/fashionai-studio/blob/main/prd/prd_v1.md)**
+**[Open Live Mock v7](https://fashionai-studio-demo.pages.dev/#/showcase)** · **[Source](https://github.com/wzxsph/fashionai-studio)** · **[Product brief](https://github.com/wzxsph/fashionai-studio/blob/main/prd/prd_v1.md)**
 
 ### 02 · TT16 · TradeType 16
 
