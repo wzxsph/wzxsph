@@ -3,7 +3,10 @@ import { join, relative } from "node:path";
 
 const root = new URL("../", import.meta.url).pathname;
 const dist = join(root, "dist");
-const base = "/wzxsph";
+const site = (process.env.SITE_URL ?? "https://wzxsph.github.io").replace(/\/$/, "");
+const configuredBase = process.env.BASE_PATH ?? "/wzxsph";
+const base = configuredBase === "/" ? "" : `/${configuredBase.replace(/^\/+|\/+$/g, "")}`;
+const absoluteUrl = (path) => `${site}${base}${path}`;
 const slugs = ["fashionai-studio", "tt16", "storyweaver"];
 const expectedPages = [
   "index.html",
@@ -36,8 +39,7 @@ for (const file of htmlFiles) {
   assert(/<html lang="(?:en|zh-CN)">/.test(html), `${name}: missing document language`);
   assert((html.match(/<h1[ >]/g) ?? []).length === 1, `${name}: expected exactly one h1`);
   assert(/<title>[^<]+<\/title>/.test(html), `${name}: missing title`);
-  assert(/rel="canonical" href="https:\/\/wzxsph\.github\.io\/wzxsph\//.test(html), `${name}: invalid canonical URL`);
-  assert(!/(?:href|src)="\/(?!wzxsph(?:\/|"))/.test(html), `${name}: found root-relative URL outside ${base}`);
+  assert(html.includes(`rel="canonical" href="${site}${base}/`), `${name}: invalid canonical URL`);
 
   for (const tag of html.match(/<img\b[^>]*>/g) ?? []) {
     assert(/alt="[^"]+"/.test(tag), `${name}: image is missing meaningful alt text`);
@@ -45,6 +47,9 @@ for (const file of htmlFiles) {
 
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const url = match[1];
+    if (base && url.startsWith("/")) {
+      assert(url === base || url.startsWith(`${base}/`), `${name}: found root-relative URL outside ${base}`);
+    }
     if (!url.startsWith(`${base}/`)) continue;
     const clean = decodeURIComponent(url.slice(base.length).split(/[?#]/)[0]);
     const target = clean.endsWith("/") ? join(dist, clean, "index.html") : join(dist, clean);
@@ -56,8 +61,8 @@ const englishHome = readFileSync(join(dist, "index.html"), "utf8");
 const chineseHome = readFileSync(join(dist, "zh/index.html"), "utf8");
 assert((englishHome.match(/class="project-row /g) ?? []).length === 3, "English home must contain exactly three flagship rows");
 assert((chineseHome.match(/class="project-row /g) ?? []).length === 3, "Chinese home must contain exactly three flagship rows");
-assert(englishHome.includes('hreflang="zh-CN" href="https://wzxsph.github.io/wzxsph/zh/"'), "English home is missing Chinese alternate");
-assert(chineseHome.includes('hreflang="en" href="https://wzxsph.github.io/wzxsph/"'), "Chinese home is missing English alternate");
+assert(englishHome.includes(`hreflang="zh-CN" href="${absoluteUrl("/zh/")}"`), "English home is missing Chinese alternate");
+assert(chineseHome.includes(`hreflang="en" href="${absoluteUrl("/")}"`), "Chinese home is missing English alternate");
 
 for (const slug of slugs) {
   const en = readFileSync(join(dist, `work/${slug}/index.html`), "utf8");

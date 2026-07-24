@@ -2,7 +2,7 @@
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CaseStudyPage from "../../components/CaseStudyPage.astro";
-import type { ProjectSlug } from "../../data/site";
+import { withBase, type ProjectSlug } from "../../data/site";
 
 export async function getStaticPaths() {
   const entries = await getCollection("cases", ({ data }) => data.lang === "en");
@@ -22,7 +22,7 @@ const jsonLd = {
   creator: { "@type": "Person", name: "Pinhao Song", url: "https://github.com/wzxsph" },
   dateCreated: data.year,
   inLanguage: "en",
-  url: new URL(`/wzxsph/work/${slug}/`, Astro.site).toString(),
+  url: new URL(withBase(`/work/${slug}/`), Astro.site).toString(),
 };
 ---
 
