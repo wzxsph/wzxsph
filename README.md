@@ -17,7 +17,7 @@
 
 ## Hi, I am Pinhao Song 👋
 
-I am an Electronic Information Engineering undergraduate at Beijing Institute of Technology and an **AI Product Builder**. I turn agent systems, generative media, and interaction ideas into products people can open, try, and share.
+I am an Electronic Information Engineering undergraduate and an **AI Product Builder**. I turn agent systems, generative media, and interaction ideas into products people can open, try, and share.
 
 I like to begin with a small but complete experience, then connect the data, models, product boundaries, and deployment path needed to make it real.
 
