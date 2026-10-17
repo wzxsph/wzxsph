@@ -1,29 +1,15 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import HomePage from "../../components/HomePage.astro";
-import { EMAIL, GITHUB, homeCopy, withBase } from "../../data/site";
+import { homePath } from "../../data/site";
 
-const copy = homeCopy.zh;
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "宋品豪",
-  alternateName: "Pinhao Song",
-  url: new URL(withBase("/zh/"), Astro.site).toString(),
-  email: `mailto:${EMAIL}`,
-  sameAs: [GITHUB],
-  affiliation: { "@type": "CollegeOrUniversity", name: "北京理工大学" },
-  knowsAbout: ["AI 产品设计", "Agent 系统", "生成式媒体", "互动产品"],
-};
+const destination = homePath("zh");
 ---
 
-<BaseLayout
-  title={copy.title}
-  description={copy.description}
-  lang="zh"
-  canonicalPath="/zh/"
-  alternatePaths={{ en: "/", zh: "/zh/" }}
-  jsonLd={jsonLd}
->
-  <HomePage lang="zh" />
+<BaseLayout title="前往宋品豪主页" description="宋品豪的中文主页。" lang="zh" canonicalPath="/" noindex>
+  <meta slot="head" http-equiv="refresh" content={`0;url=${destination}`} />
+  <main id="main" class="message">
+    <h1>中文主页已迁移</h1>
+    <p>正在前往新的中文主页。</p>
+    <p><a href={destination}>前往宋品豪主页</a></p>
+  </main>
 </BaseLayout>

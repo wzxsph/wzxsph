@@ -1,29 +1,23 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HomePage from "../components/HomePage.astro";
-import { EMAIL, GITHUB, homeCopy, withBase } from "../data/site";
+import { EMAIL, GITHUB, homeCopy, homePath } from "../data/site";
 
-const copy = homeCopy.en;
+const copy = homeCopy.zh;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Pinhao Song",
-  alternateName: "宋品豪",
-  url: new URL(withBase("/"), Astro.site).toString(),
+  name: "宋品豪",
+  alternateName: "Pinhao Song",
+  jobTitle: "独立开发者",
+  description: copy.description,
+  url: new URL(homePath("zh"), Astro.site).toString(),
   email: `mailto:${EMAIL}`,
   sameAs: [GITHUB],
-  affiliation: { "@type": "CollegeOrUniversity", name: "Beijing Institute of Technology" },
-  knowsAbout: ["AI product design", "Agent systems", "Generative media", "Interactive products"],
+  knowsAbout: ["AI 应用", "原生软件", "计算机视觉"],
 };
 ---
 
-<BaseLayout
-  title={copy.title}
-  description={copy.description}
-  lang="en"
-  canonicalPath="/"
-  alternatePaths={{ en: "/", zh: "/zh/" }}
-  jsonLd={jsonLd}
->
-  <HomePage lang="en" />
+<BaseLayout title={copy.title} description={copy.description} lang="zh" canonicalPath="/" jsonLd={jsonLd}>
+  <HomePage lang="zh" />
 </BaseLayout>

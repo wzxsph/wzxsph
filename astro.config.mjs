@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
 const site = process.env.SITE_URL ?? "https://wzxsph.github.io";
@@ -10,7 +9,9 @@ export default defineConfig({
   base,
   output: "static",
   trailingSlash: "always",
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    sitemap({ filter: (page) => !/\/(?:zh\/|404\.html)$/.test(new URL(page).pathname) }),
+  ],
   vite: {
     build: {
       assetsInlineLimit: 0,
